@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="gRPC-API/gRPC-API.csproj" />
+  <Project Path="WebAndMaui/WebAndMaui.Shared/WebAndMaui.Shared.csproj" />
+  <Project Path="WebAndMaui/WebAndMaui.Web/WebAndMaui.Web.csproj" />
+  <Project Path="WebAndMaui/WebAndMaui/WebAndMaui.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
