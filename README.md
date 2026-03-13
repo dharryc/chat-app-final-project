@@ -34,3 +34,18 @@ graph TB
 ```
 
 I'm sure there's something (or lots of stuff) that we've missed, but this is a rough draft of what we've got so far
+
+# Groundwork/Rough plan of attack
+
+- get azure services up
+    - database
+    - blob storage
+    - azure app services
+    - Github actions
+- database design
+- set up auth (we probably shouldn't do that ourselves)
+- RESTful API
+- get signalR or gRPC working
+- flesh out layout and design
+- figure out how we're going to do voice chats
+- how are messages written (probably a gRPC/signalR sub-service?)
