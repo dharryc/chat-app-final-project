@@ -24,7 +24,7 @@ jobs:
       - name: Log in to container registry
         uses: docker/login-action@v2
         with:
-          registry: registry-1.docker.io/
+          registry: docker.io/
           username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}
           password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_6F77CCAD26AF4EC99CF695258182BB9D }}
 
@@ -33,7 +33,7 @@ jobs:
         with:
           context: ./WebAndMaui/WebAndMaui
           push: true
-          tags: registry-1.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}
+          tags: docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}
           file: ./WebAndMaui/WebAndMaui/dockerfile
 
   deploy:
@@ -59,5 +59,5 @@ jobs:
         with:
           app-name: 'rest-blazor-api'
           slot-name: 'Production'
-          images: 'registry-1.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}'
+          images: 'docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}'
           
