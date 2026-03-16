@@ -1,0 +1,63 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy container app to Azure Web App - rest-blazor-api
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read #This is required for actions/checkout
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to container registry
+        uses: docker/login-action@v2
+        with:
+          registry: registry-1.docker.io/
+          username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}
+          password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_6F77CCAD26AF4EC99CF695258182BB9D }}
+
+      - name: Build and push container image to registry
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: registry-1.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/dharryc/rest-blazor-api:${{ github.sha }}
+          file: ./Dockerfile
+
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
+    needs: build
+    
+    steps:
+      
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B6FDC45E076D4FDC8E89112B476E49AF }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C3629AB259BD49529458DFCB20C597FF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C7B133E4859642AC9C011B724FC805C1 }}
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'rest-blazor-api'
+          slot-name: 'Production'
+          images: 'registry-1.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/dharryc/rest-blazor-api:${{ github.sha }}'
+          
