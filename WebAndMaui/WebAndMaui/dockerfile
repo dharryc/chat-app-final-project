@@ -1,0 +1,22 @@
+# Use multi-stage build to publish the app
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+WORKDIR /src
+
+# Copy project files
+COPY WebAndMaui.Web/*.csproj ./WebAndMaui.Web/
+COPY WebAndMaui.Shared/*.csproj ./WebAndMaui.Shared/
+
+RUN dotnet restore WebAndMaui.Web/WebAndMaui.Web.csproj
+
+# Copy source code
+COPY WebAndMaui.Web/ ./WebAndMaui.Web/
+COPY WebAndMaui.Shared/ ./WebAndMaui.Shared/
+
+RUN dotnet publish WebAndMaui.Web/WebAndMaui.Web.csproj -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://+:80
+EXPOSE 80
+ENTRYPOINT ["dotnet", "WebAndMaui.Web.dll"]

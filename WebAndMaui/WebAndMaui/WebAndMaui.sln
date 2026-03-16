@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndMaui", "WebAndMaui\WebAndMaui.csproj", "{225EDDCE-1AA2-FA37-BF95-62CF7E8C96B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndMaui.Shared", "WebAndMaui.Shared\WebAndMaui.Shared.csproj", "{E55E2684-BFBB-E05B-BAE7-3935DD51407D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndMaui.Web", "WebAndMaui.Web\WebAndMaui.Web.csproj", "{404CC54F-10AA-3E0E-ADA5-46C5C0DF36A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{225EDDCE-1AA2-FA37-BF95-62CF7E8C96B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225EDDCE-1AA2-FA37-BF95-62CF7E8C96B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225EDDCE-1AA2-FA37-BF95-62CF7E8C96B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225EDDCE-1AA2-FA37-BF95-62CF7E8C96B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55E2684-BFBB-E05B-BAE7-3935DD51407D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55E2684-BFBB-E05B-BAE7-3935DD51407D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55E2684-BFBB-E05B-BAE7-3935DD51407D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55E2684-BFBB-E05B-BAE7-3935DD51407D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404CC54F-10AA-3E0E-ADA5-46C5C0DF36A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404CC54F-10AA-3E0E-ADA5-46C5C0DF36A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404CC54F-10AA-3E0E-ADA5-46C5C0DF36A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404CC54F-10AA-3E0E-ADA5-46C5C0DF36A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA788B91-F4D9-4752-A77B-B8A080D56A6A}
+	EndGlobalSection
+EndGlobal

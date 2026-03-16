@@ -34,7 +34,7 @@ jobs:
           context: .
           push: true
           tags: registry-1.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/dharryc/rest-blazor-api:${{ github.sha }}
-          file: ./Dockerfile
+          file: ./WebAndMaui/WebAndMaui/dockerfile
 
   deploy:
     runs-on: ubuntu-latest
