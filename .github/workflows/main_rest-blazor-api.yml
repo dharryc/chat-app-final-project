@@ -33,7 +33,7 @@ jobs:
         with:
           context: ./WebAndMaui/WebAndMaui
           push: true
-          tags: docker.io${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}
+          tags: docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}
           file: ./WebAndMaui/WebAndMaui/dockerfile
 
   deploy:
@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'rest-blazor-api'
           slot-name: 'Production'
-          images: 'docker.io${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}'
+          images: 'docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_6A2EA5B21078451A80207C3045460027 }}/rest-blazor-api:${{ github.sha }}'
