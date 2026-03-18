@@ -70,3 +70,16 @@ GROUP
 - id/name stuff  
 - is_groupchat: bool  
 GROUPCHAT_MEMBER: current table we have still works with this  
+- 3/18 HEBER FEEDBACK:
+  - can refer to the fk user(id) for the message sender, instead of a bool flag
+  - have 2 rows for any friendship: requester -> requestee, requestee -> requester (for faster lookup)
+  - actually, just treat all messages "like group chat message"
+  - add many-to-many relationship tables "Status" to keep track of read status, and "Reaction" to allow multiple reactions per message per person
+  - CALL HISTORY modifications - per person, so if you leave a group call early, the duration reflects how long you were in there, not how long the call lasted
+  - GROUP_CHAT_MEMBER - soft delete flag (active/inactive flag)... no DELETEs... and also admin-revoke to actually delete everything about the guy ("you can't send anymore, but you can still read past stuff" vs. "you can't send, you can't even see, you won't even know you ever existed in the chat or calls")
+  - Group Chat invitations? - only owner can add a new member? Have a Pending Invite status? and everything about the group chat disappears if the owner leaves?  
+
+  
+
+
+
